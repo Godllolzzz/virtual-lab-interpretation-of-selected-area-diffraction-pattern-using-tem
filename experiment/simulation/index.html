@@ -1,13 +1,158 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <!-- Add CSS at the head of HTML file -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- .aim_box -->
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
-</body>
+    <div id="aim_box" class="card">
+      <h3 id="aim_heading">
+        Interpretation of selected area diffraction pattern (spots vs ring
+        effect of defect structure)
+      </h3>
+    </div>
+
+    <!-- instruction -->
+
+    <div
+      id="instruction_box"
+      style="border: 4px solid black; border-radius: 8px"
+      class="d-flex flex-row card p-2 m-2"
+    >
+      <div
+        class="p-2 m-1"
+        style="
+          font-style: italic;
+          color: white;
+          background-color: #0064f9;
+          border-radius: 5px;
+        "
+      >
+        Instruction:
+      </div>
+      <div style="margin-left: 1rem" id="instruction">
+        Start the switch Lorem ipsum dolor sit amet consectetur, adipisicing
+        elit. Asperiores, atque nostrum blanditiis accusantium ea porro
+        laudantium vitae voluptas molestias. Quos minus modi sint exercitationem
+        porro. Asperiores obcaecati suscipit eius aut!
+      </div>
+    </div>
+
+    <!-- main simulator -->
+    <div id="simulator">
+      <div id="simulator_box_1" class="card card_simulator">1 of 3</div>
+      <div
+        id="simulator_box_2"
+        class="card card_simulatord-flex flex-coloumn justify-content-center"
+      >
+        <!-- <img src="images/tem_body.png" style="height: auto; width: 100%; justify-content: center;"> -->
+        <img
+          id="part1"
+          class="part align-self-center"
+          src="./images/electron_gun.png"
+        />
+        <div id="part1_text" class="card part_text p-1">electron gun</div>
+        <img
+          id="part2"
+          class="part align-self-center"
+          src="./images/gun_deflector.png"
+        />
+        <div id="part2_text" class="card part_text p-1">gun deflector</div>
+        <img
+          id="part3"
+          class="part align-self-center"
+          src="./images/project_intermediate_condensor_lens.png"
+        />
+        <div id="part3_text" class="card part_text p-1">condensor lens-1</div>
+        <img
+          id="part4"
+          class="part align-self-center"
+          src="./images/objective_condensor.png"
+        />
+        <div id="part4_text" class="card part_text p-1">condensor lens-2</div>
+        <img
+          id="part5"
+          class="part align-self-center"
+          src="./images/project_objective.png"
+        />
+        <div id="part5_text" class="card part_text p-1">objective stigmator</div>
+        <img
+          id="part6"
+          class="part align-self-center"
+          src="./images/objective_condensor.png"
+        />
+        <div id="part6_text" class="card part_text p-1">objective lens-1</div>
+        <img
+          id="part7"
+          class="part align-self-center"
+          src="./images/objective_condensor.png"
+        />
+        <div id="part7_text" class="card part_text p-1">objective lens-2</div>
+        <img
+          id="part8"
+          class="part align-self-center"
+          src="./images/project_intermediate_condensor_lens.png"
+        />
+        <div id="part8_text" class="card part_text p-1">intermediate lens</div>
+        <img
+          id="part9"
+          class="part align-self-center"
+          src="./images/project_intermediate_condensor_lens.png"
+        />
+        <div id="part9_text" class="card part_text p-1">project lens-1</div>
+        <img
+          id="part10"
+          class="part align-self-center"
+          src="./images/project_objective.png"
+        />
+        <div id="part10_text" class="card part_text p-1">project lens-2</div>
+        <!-- <div id="dropzone" class="" style="display: block">
+          <div style="background: red" class="material"></div>
+        </div>
+        <canvas
+          id="beam"
+          width="15"
+          height="480"
+          style="
+            position: absolute;
+            top: 18%;
+            left: 50%;
+            transform: translateX(-50%);
+          "
+        ></canvas>
+        <canvas
+          id="beam2"
+          width="256"
+          height="80"
+          style="
+            display: none;
+            position: absolute;
+            top: 81%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: none;
+          "
+        ></canvas> -->
+      </div>
+      <div id="simulator_box_3" class="card card_simulator">3 of 3</div>
+    </div>
+    <!-- Add JS at the bottom of HTML file -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/main.js"></script>
+  </body>
 </html>

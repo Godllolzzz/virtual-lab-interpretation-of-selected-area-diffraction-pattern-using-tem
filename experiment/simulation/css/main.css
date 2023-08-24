@@ -1,1 +1,254 @@
 /* You CSS goes in here */
+* {
+}
+
+#aim_box {
+  text-align: center;
+  background-color: #6bdcff6e;
+  padding: 1rem;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  margin: 0.5rem;
+}
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#instruction_box {
+  margin: 0.5rem;
+  border: 2px solid #6bdcff;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+}
+#simulator_box_1 {
+  height: 33rem;
+  width: 35%;
+  /* display: flex;
+    flex-direction: column; */
+}
+#simulator_box_2 {
+  height: 33rem;
+  width: 30%;
+  background-image: url("../images/tem_body.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 45rem;
+}
+#simulator_box_3 {
+  height: 33rem;
+  width: 35%;
+  /* display: flex;
+    flex-direction: column; */
+}
+#part1 {
+  position: relative;
+  top: 4.5rem;
+  left: 0.7rem;
+}
+#part2 {
+  position: relative;
+  top: 3.7rem;
+  left: 0.5rem;
+}
+#part3 {
+  left: 0.4rem;
+  position: relative;
+  top: 3rem;
+}
+#part4 {
+  position: relative;
+  left: 0.4rem;
+  top: 1rem;
+}
+#part5 {
+  position: relative;
+  left: 0.4rem;
+  top: 3rem;
+  width: 6rem;
+}
+#part6 {
+  position: relative;
+  left: 0.4rem;
+  top: 0.8rem;
+}
+#part7 {
+  position: relative;
+  left: 0.4rem;
+  bottom: 1.9rem;
+}
+#part8 {
+  position: relative;
+  left: 0.4rem;
+  bottom: 3.8rem;
+}
+#part9 {
+  position: relative;
+  bottom: 5.8rem;
+  left: 0.4rem;
+}
+#part10 {
+  position: relative;
+  bottom: 7.5rem;
+  width: 5.5rem;
+  height: 3rem;
+  left: 0.4rem;
+}
+@media screen and (max-width: 660px) {
+  #simulator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  #simulator_box_1 {
+    width: 100%;
+  }
+  #simulator_box_2 {
+    width: 100%;
+  }
+  #simulator_box_3 {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 660px) {
+  #simulator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.part {
+  width: 4.4rem;
+  transition: transform 0.2s;
+  position: relative;
+  /* left: 0.4rem; */
+}
+.part:hover {
+  transform: scale(1.5);
+}
+#part1_text {
+  visibility: hidden;
+  color: red;
+  bottom: 27rem;
+  left: 70%;
+  position: absolute;
+}
+#part1:hover + #part1_text {
+  visibility: visible;
+}
+#part2_text {
+  visibility: hidden;
+  color: red;
+  bottom: 24rem;
+  left: 70%;
+  position: absolute;
+}
+
+#part2:hover + #part2_text {
+  visibility: visible;
+}
+#part3_text {
+  visibility: hidden;
+  color: red;
+  bottom: 21rem;
+  left: 70%;
+  position: absolute;
+}
+
+#part3:hover + #part3_text {
+  visibility: visible;
+}
+#part4_text {
+  visibility: hidden;
+  color: red;
+  bottom: 20rem;
+  /* left: 10%; */
+  position: absolute;
+}
+
+#part4:hover + #part4_text {
+  visibility: visible;
+}
+#part5_text {
+  visibility: hidden;
+  color: red;
+  bottom: 15rem;
+  left: 70%;
+  position: absolute;
+}
+
+#part5:hover + #part5_text {
+  visibility: visible;
+}
+#part6_text {
+  visibility: hidden;
+  color: red;
+  bottom: 12rem;
+  /* left: 20%; */
+  position: absolute;
+}
+
+#part6:hover + #part6_text {
+  visibility: visible;
+}
+#part7_text {
+  visibility: hidden;
+  color: red;
+  bottom: 12rem;
+  left: 70%;
+  position: absolute;
+}
+
+#part7:hover + #part7_text {
+  visibility: visible;
+}
+#part8_text {
+  visibility: hidden;
+  color: red;
+  top: 20rem;
+  left: 70%;
+  position: absolute;
+}
+
+
+#part8:hover + #part8_text {
+  visibility: visible;
+}
+#part9_text {
+  visibility: hidden;
+  color: red;
+  top: 22rem;
+  /* left: 20%; */
+  position: absolute;
+}
+
+
+#part9:hover + #part9_text {
+  visibility: visible;
+}
+#part10_text {
+  visibility: hidden;
+  color: red;
+  top: 23rem;
+  left: 70%;
+  position: absolute;
+}
+
+
+#part10:hover + #part10_text {
+  visibility: visible;
+}
+
+.part_text {
+  font-size: small;
+  font-weight: bold;
+  font-style: italic;
+}
