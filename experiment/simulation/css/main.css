@@ -1,16 +1,17 @@
 /* You CSS goes in here */
-* {
+.body {
+  background-color: #9dffef31;
 }
 
 #aim_box {
   text-align: center;
-  background-color: #6bdcff6e;
+  background-color: #9dffee;
   padding: 1rem;
 }
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   transition: 0.3s;
-  margin: 0.5rem;
+  margin: 0.2rem;
 }
 /* On mouse-over, add a deeper shadow */
 .card:hover {
@@ -19,85 +20,157 @@
 
 #instruction_box {
   margin: 0.5rem;
-  border: 2px solid #6bdcff;
+  border: 2px solid #007663;
   border-radius: 4px;
+  justify-content: center;
   display: flex;
   flex-direction: row;
 }
 #simulator_box_1 {
   height: 33rem;
-  width: 35%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #121212;
   /* display: flex;
     flex-direction: column; */
 }
+#start_button {
+  display: flex;
+  justify-content: center;
+}
+.power-button {
+  /* position: relative; */
+  width: 80px;
+  height: 40px;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.power-button .switch {
+  width: 40px;
+  height: 40px;
+  background-color: #cb0000;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.power-button.on .switch {
+  transform: translateX(40px);
+  background-color: #05a000;
+}
+#materials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.range_container {
+  display: flex;
+}
+#vacuum_range {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 2rem;
+}
+#vacuum {
+  margin: 0 auto 0 auto;
+  width: 80%;
+}
+#voltage_range {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0 2rem 0 2rem;
+}
+#voltage {
+  margin: 0 auto 0 auto;
+  width: 80%;
+}
+#last_buttons {
+  margin: auto;
+}
 #simulator_box_2 {
   height: 33rem;
-  width: 30%;
-  background-image: url("../images/tem_body.png");
+  width: 40%;
+  background-image: url("../images/befunky_2023-7-4_13-54-27.png");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 45rem;
+  background-position: center; 
+  background-size: 17rem;
 }
 #simulator_box_3 {
   height: 33rem;
-  width: 35%;
+  width: 30%;
   /* display: flex;
     flex-direction: column; */
 }
 #part1 {
   position: relative;
-  top: 4.5rem;
-  left: 0.7rem;
+  top: 6.9rem;
+  left: 1.35rem;
+  width: 7rem;
+  height: 2.5rem;
 }
 #part2 {
   position: relative;
-  top: 3.7rem;
-  left: 0.5rem;
+  top: 6rem;
+  left: 1rem;
 }
 #part3 {
-  left: 0.4rem;
   position: relative;
-  top: 3rem;
+  top: 4.7rem;
+  left: 0.9rem;
+  width: 5rem;
 }
 #part4 {
   position: relative;
-  left: 0.4rem;
-  top: 1rem;
+  left: 0.8rem;
+  top: 2.5rem;
+  width: 5rem;
 }
 #part5 {
   position: relative;
-  left: 0.4rem;
-  top: 3rem;
-  width: 6rem;
+  left: 1rem;
+  top: 2.5rem;
+  width: 8rem;
 }
 #part6 {
   position: relative;
-  left: 0.4rem;
-  top: 0.8rem;
+  left: 1rem;
+  width: 5rem;
+  bottom: 0.2rem;
 }
 #part7 {
   position: relative;
-  left: 0.4rem;
-  bottom: 1.9rem;
+  left: 1rem;
+  width: 5rem;
+  bottom: 3.2rem;
 }
 #part8 {
   position: relative;
-  left: 0.4rem;
-  bottom: 3.8rem;
+  left: 1.1rem;
+  width: 5rem;
+  bottom: 4.6rem;
 }
 #part9 {
   position: relative;
-  bottom: 5.8rem;
-  left: 0.4rem;
+  bottom: 5.7rem;
+  width: 5rem;
+  left: 1.1rem;
 }
 #part10 {
   position: relative;
   bottom: 7.5rem;
-  width: 5.5rem;
+  width: 7rem;
   height: 3rem;
-  left: 0.4rem;
+  left: 1.1rem;
 }
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 900px) {
   #simulator {
     display: flex;
     flex-direction: column;
@@ -114,8 +187,14 @@
   #simulator_box_3 {
     width: 100%;
   }
+  #instruction_box {
+    flex-direction: column;
+  }
+  #instruction_tag {
+    width: 6rem;
+  }
 }
-@media screen and (min-width: 660px) {
+@media screen and (min-width: 900px) {
   #simulator {
     display: flex;
     flex-direction: row;
@@ -217,8 +296,6 @@
   left: 70%;
   position: absolute;
 }
-
-
 #part8:hover + #part8_text {
   visibility: visible;
 }
@@ -229,8 +306,6 @@
   /* left: 20%; */
   position: absolute;
 }
-
-
 #part9:hover + #part9_text {
   visibility: visible;
 }
@@ -242,7 +317,6 @@
   position: absolute;
 }
 
-
 #part10:hover + #part10_text {
   visibility: visible;
 }
@@ -251,4 +325,8 @@
   font-size: small;
   font-weight: bold;
   font-style: italic;
+}
+
+#simulator_box_3 {
+  background-color: #9dffef64;
 }

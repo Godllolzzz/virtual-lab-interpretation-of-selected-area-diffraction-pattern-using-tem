@@ -13,24 +13,21 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body class="body">
     <!-- .aim_box -->
-
+<!-- 
     <div id="aim_box" class="card">
       <h3 id="aim_heading">
         Interpretation of selected area diffraction pattern (spots vs ring
         effect of defect structure)
       </h3>
-    </div>
+    </div> -->
 
     <!-- instruction -->
 
-    <div
-      id="instruction_box"
-      style="border: 4px solid black; border-radius: 8px"
-      class="d-flex flex-row card p-2 m-2"
-    >
+    <div id="instruction_box" class="card p-2 m-2">
       <div
+      id="instruction_tag"
         class="p-2 m-1"
         style="
           font-style: italic;
@@ -51,12 +48,117 @@
 
     <!-- main simulator -->
     <div id="simulator">
-      <div id="simulator_box_1" class="card card_simulator">1 of 3</div>
+      <div id="simulator_box_1" class="card card_simulator">
+        <div id="start_button">
+          <div
+            id="off"
+            class="align-self-center m-2"
+            style="
+              font-size: large;
+              font-weight: bold;
+              color: rgba(213, 0, 0, 0.83);
+            "
+          >
+            OFF
+          </div>
+          <div class="power-button m-3" onclick="togglePower(this)">
+            <div class="switch"></div>
+          </div>
+          <div
+            id="on"
+            class="align-self-center m-2"
+            style="font-size: large; font-weight: bold; color: white"
+          >
+            ON
+          </div>
+        </div>
+        <div id="materials">
+          <label style="font-size: large; font-weight: bold" for="material"
+            >Select material:</label
+          >
+          <select
+            class="mt-2 p-1"
+            style="width: 50%; margin: auto; border: none"
+            name="material"
+            id="material"
+          >
+            <option value="monocrystalline">Monocrystalline</option>
+            <option value="ponocrystalline">Polycrystalline</option>
+          </select>
+        </div>
+        <button
+          type="button"
+          class="mt-4 btn btn-danger"
+          style="width: 50%; margin-left: auto; margin-right: auto"
+          onclick="sample_placing_handler(this)"
+        >
+          Place sample in machine
+        </button>
+        <div id="vacuum_range">
+          <label for="vacuum" class="form-label">Vacuum (in torr)</label>
+          <div class="range_container">
+            <input
+              type="range"
+              min="100"
+              max="200"
+              step="50"
+              class="form-range align-self-center"
+              id="vacuum"
+            />
+            <button
+              type="button"
+              class="btn btn-info"
+              style="margin-left: auto; margin-right: auto"
+            >
+              Set
+            </button>
+          </div>
+        </div>
+        <div id="voltage_range">
+          <label for="voltage" class="form-label"
+            >Accelerating Voltage (in kV)</label
+          >
+          <div class="range_container">
+            <input
+              type="range"
+              min="100"
+              max="200"
+              step="50"
+              class="align-self-center form-range"
+              id="voltage"
+            />
+            <button
+              type="button"
+              class="btn btn-info"
+              style="margin-left: auto; margin-right: auto"
+            >
+              Set
+            </button>
+          </div>
+        </div>
+        <div id="last_buttons">
+          <button
+            type="button"
+            class="btn btn-warning"
+            style="margin-right: 2rem"
+          >
+            BEAM ON
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            style="margin-left: 2rem"
+          >
+            RESET
+          </button>
+        </div>
+      </div>
       <div
         id="simulator_box_2"
-        class="card card_simulatord-flex flex-coloumn justify-content-center"
+        class="card card_simulator d-flex flex-coloumn justify-content-center"
       >
         <!-- <img src="images/tem_body.png" style="height: auto; width: 100%; justify-content: center;"> -->
+        <!-- <img src="./images/tem-3d2.png" style="z-index: -1;" alt="tem_body"/> -->
         <img
           id="part1"
           class="part align-self-center"
@@ -86,7 +188,9 @@
           class="part align-self-center"
           src="./images/project_objective.png"
         />
-        <div id="part5_text" class="card part_text p-1">objective stigmator</div>
+        <div id="part5_text" class="card part_text p-1">
+          objective stigmator
+        </div>
         <img
           id="part6"
           class="part align-self-center"
