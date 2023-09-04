@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TEM</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/jquery-ui.css" />
+    <link rel="stylesheet" href="../css/controls.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <style></style>
+  </head>
+  <body >
+    <!-- experiment heading -->
+    <div class="card fluid-container mb-2">
+      <div class= "header-bar p-2">
+        <h4 class="" style="color: blue; font-style: italic">Instructions:</h4>
+        <div>
+          <b
+            >Hello, Welcome to simulator. Here instructions will be given.
+            Switch on the button.
+          </b>
+        </div>
+      </div>
+    </div>
+
+    <!-- exp heading end -->
+    <!-- experiment instructions -->
+
+    <!-- end of experiment instructions -->
+
+    <!-- the 3 base columns: 1-> adjustments   2-> tem internal    3-> image  -->
+
+    <div class="row text-center">
+      <div class="card col-xl-4 themed-grid-col">
+        <!-- left controls/adjustments -->
+        <div class="remote-container">
+          <!-- switch on/off -->
+          <div class="button-container">
+            <div class="label-heading">Switch</div>
+            <input
+              id="toggle"
+              class="toggle"
+              type="checkbox"
+              role="switch"
+              name="toggle"
+              value="on"
+            />
+            <label for="toggle" class="slot">
+              <span class="slot__label">OFF</span>
+              <span class="slot__label">ON</span>
+            </label>
+          </div>
+          <!-- Sample selection input with options -->
+          <div class="button-container">
+            <div class="label-heading">Sample</div>
+            <select class="button">
+              <option value="nanoparticles">NANOPARTICLES</option>
+              <option value="zebrafish">ZEBRAFISH</option>
+              <option value="metal">METAL</option>
+              <option value="mineral">MINERAL</option>
+            </select>
+          </div>
+          <!-- voltage -->
+          <!-- silder for Accelerating volatge  -->
+          <div class="slider-container">
+            <label id="acv" class="slider-label">Accelerating Voltage</label>"
+            <input
+              type="range"
+              id="voltageSlider"
+              min="0"
+              max="20"
+              step="5"
+              value="0"
+            />
+            <div class="voltage-labels">
+              <label for="voltage0">0 kV</label>
+              <label for="voltage5">5 kV</label>
+              <label for="voltage10">10 kV</label>
+              <label for="voltage15">15 kV</label>
+              <label for="voltage20">20 kV</label>
+            </div>
+          </div>
+          <!-- magnification -->
+          <div class="button-container">
+            <div class="label-heading">Magnification</div>
+            <select class="button">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+              <option value="very_high">Very High</option>
+            </select>
+          </div>
+          <!-- vaccum slider -->
+          <div class="vacuum-container">
+            <div class="slider-label">Vacuum Selection</div>
+            <input
+              type="range"
+              id="vacuum-slider"
+              min="0"
+              max="1"
+              step="1"
+              value="0"
+            />
+            <br />
+            <span id="vacuum-value">Low Voltage</span>
+            <br />
+            <button class="set-button" onclick="setVacuum()">Set</button>
+          </div>
+          <!-- beam magnification -->
+          <div class="magnification-container">
+            <div class="slider-label">Magnification</div>
+            <input
+              type="range"
+              id="magnification-slider"
+              min="0"
+              max="3"
+              step="1"
+              value="0"
+            />
+            <br />
+            <span id="magnification-value">LOW</span>
+            <br />
+            <button class="set-button" onclick="setMagnification()">Set</button>
+          </div>
+
+          <div class="block block-channel">
+            <div type="button" class="btn round btn-big text">
+              <button type="button" class="btn-big-inner text">Set</button>
+            </div>
+          </div>
+          <!-- aperture -->
+          <div class="button-container">
+            <div class="label-heading">Aperture</div>
+            <select class="button">
+              <option value="condenser">Objective</option>
+              <option value="objective">Condenser</option>
+              <option value="sad">SAD</option>
+            </select>
+          </div>
+          <!-- aperture size -->
+          <div class="button-container">
+            <div class="label-heading">Aperture Size</div>
+            <select class="button">
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <!-- beam on/off -->
+          <div class="button-container">
+            <button id="on" class="but sm w-100 green">Beam On</button>
+          </div>
+
+          <!-- Add more buttons as needed -->
+        </div>
+
+        <!-- end of left controls/adjustments -->
+      </div>
+      <div
+        class="col-xl-4 themed-grid-col"
+        id="adjust-machine"
+        style="position: relative"
+      >
+        <!-- simulation/machine -->
+        <!-- <img src="../images/bg/tem_back.png" alt="TEM back" width="400" height="600"> -->
+
+        <div
+          class="panel"
+          style="
+            background-color: #292929;
+            position: relative;
+            width: 100%;
+            height: 45rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.981);
+            transition: 0.3s;
+          "
+        >
+          <!-- parts -->
+          <img
+            data-id="9"
+            src="../images/bg/tem-3d3.png"
+            class="part a"
+            style="width: 25rem; height: 43rem"
+          />
+
+          <div class="image-hover" style="top: 4.6rem; right: -0.2rem">
+            <img id="part1" src="../images/parts/eg.png" alt="Hover Image" />
+            <div class="hover-text card">
+              <p>Electron Gun</p>
+            </div>
+          </div>
+          <div class="image-hover" style="top: 3.6rem">
+            <img src="../images/parts/red.png" id="part2" />
+            <div class="hover-text card">
+              <p>Anode</p>
+            </div>
+          </div>
+          <div class="image-hover" style="top: 2.3rem">
+            <img src="../images/parts/pink.png" id="part3" />
+            <div class="hover-text card">
+              <p>Condenser-lens-1</p>
+            </div>
+          </div>
+          <div class="image-hover" style="top: -0.7rem; right: 0.2rem">
+            <img
+              data-id="4"
+              title="specimen"
+              src="../images/parts/green.png"
+              id="part4"
+            />
+            <div class="hover-text card">
+              <p>Condenser-lens-2</p>
+            </div>
+          </div>
+          <div class="image-hover" style="top: -1rem">
+            <img
+              data-id="5"
+              title="coil"
+              src="../images/parts/blue.png"
+              id="part5"
+            />
+            <div class="hover-text card">
+              <p>Objective-lens-2</p>
+            </div>
+          </div>
+          <div class="image-hover" style="bottom: 5.5rem; right: 0.2rem">
+            <img
+              data-id="6"
+              title="objective_aperture_lens"
+              src="../images/parts/green.png"
+              id="part6"
+            />
+            <div class="hover-text card">
+              <p>Objective-lens-1</p>
+            </div>
+          </div>
+          <div class="image-hover" style="bottom: 11rem; right: 0.2rem">
+            <img
+              data-id="7"
+              title="intermediate_lens"
+              src="../images/parts/green.png"
+              id="part7"
+            />
+            <div class="hover-text card">
+              <p>Intermediate-lens</p>
+            </div>
+          </div>
+          <div class="image-hover" style="bottom: 15.5rem">
+            <img
+              data-id="8"
+              title="projector_lens"
+              src="../images/parts/pink.png"
+              id="part8"
+            />
+            <div class="hover-text card">
+              <p>Projector-lens-1</p>
+            </div>
+          </div>
+          <div class="image-hover" style="bottom: 19rem">
+            <img
+              data-id="8"
+              title="projector_lens"
+              src="../images/parts/pink.png"
+              id="part9"
+            />
+            <div class="hover-text card">
+              <p>Projector-lens-2</p>
+            </div>
+          </div>
+          <div class="image-hover" style="bottom: 21rem">
+            <img
+              data-id="8"
+              title="projector_lens"
+              src="../images/parts/blue.png"
+              id="part10"
+            />
+            <div class="hover-text card">
+              <p>Projector-lens-3</p>
+            </div>
+          </div>
+          <div class="image-hover" style="bottom: 20rem">
+            <img
+              data-id="9"
+              title="fluorescent-screen"
+              src="../images/parts/fluorescent_screen_4.png"
+              id="fluorescent_screen"
+            />
+            <div class="hover-text card">
+              <p>Fluorescent-screen</p>
+            </div>
+          </div>
+
+          <div class="image-hover" style="bottom: 49.8rem; right: 6rem;">
+            <img
+              data-id="10"
+              title="sample_holder1"
+              src="../images/parts/sample_holder1.png"
+              id="sample_holder1"
+            />
+            <div class="hover-text card">
+              <p>Sample Holder</p>
+            </div>
+          </div>
+          <!-- end of parts -->
+          <div id="dropzone" class="active" style="display: none"></div>
+          <!-- beam -->
+          <canvas
+            id="beam"
+            width="15"
+            height="530"
+            style="
+              position: absolute;
+              top: 17%;
+              left: 50%;
+              transform: translateX(-62%);
+            "
+          ></canvas>
+          <canvas
+            id="beam2"
+            width="256"
+            height="80"
+            style="
+              display: none;
+              position: absolute;
+              top: 81%;
+              left: 50%;
+              transform: translateX(-50%);
+              background: none;
+            "
+          ></canvas>
+          <!-- end of beam -->
+        </div>
+        <!-- end of simulation machine -->
+      </div>
+
+      <div class="card col-xl-4 themed-grid-col">
+        <!-- image formed output -->
+        <!-- <img src="../images/outputs/Adeno_virus.jpg" class="fluid-container" alt="output1" style="width: 100%;"> -->
+
+        <img
+          id="image"
+          class="fluid-container"
+          src="../images/outputs/Adeno_virus.jpg"
+          style="width: 100%"
+          alt="Image 1"
+        />
+        CDF image
+        <!-- end of image formed output -->
+
+        <!-- holder move button -->
+
+        <!-- holder move  button -->
+
+        <!-- instructions -->
+
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+          <svg
+            class="bi flex-shrink-0 me-2"
+            style="height: 2rem; width: 2rem"
+            role="img"
+            aria-label="Info:"
+          >
+            <use xlink:href="#info-fill" />
+          </svg>
+          <div>Put the sample on the sample holder below the TEM machine.</div>
+        </div>
+        <!-- end of instructions code -->
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"
+    ></script>
+    <!-- <script src="../js/jquery.min.js"></script> -->
+    <!-- <script src="../js/popper.js"></script> -->
+    <!-- <script src="../js/bootstrap.min.js"></script> -->
+    <!-- <script src="../js/zoom.js"></script> -->
+    <!-- <script src="../js/jquery-ui.min.js"></script> -->
+    <script src="../js/main.js"></script>
+    <script src="../js/tasks.js"></script>
+    <script>
+      var inp = $("#position :selected").val();
+      let i = 0;
+
+      function change() {
+        if (inp == 1) {
+          document.getElementById("dropzone").style.marginTop = "4%";
+        } else {
+          document.getElementById("dropzone").style.marginTop = "16%";
+        }
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script></script>
+  </body>
+</html>
