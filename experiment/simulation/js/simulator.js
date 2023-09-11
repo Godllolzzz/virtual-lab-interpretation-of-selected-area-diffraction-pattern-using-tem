@@ -38,9 +38,9 @@ function type(txt, cur = 0) {
 
 let english = true;
 function toggleVoice(btn) {
-  english = !english
-  if(english) btn.innerHTML = "ENG"
-  else btn.innerHTML = "HIN"
+  english = !english;
+  if (english) btn.innerHTML = "ENG";
+  else btn.innerHTML = "HIN";
 }
 
 function textToSpeech(text, lang) {
@@ -80,14 +80,17 @@ function strt() {
   $("#removeButton").prop("disabled", false);
 
   showToast("Remove the sample holder");
-  type(
-    "Now remove the holder, drag and drop the sample on it and insert the sample holder back into the machine."
-  );
   if (english) {
+    type(
+      "Now remove the holder, drag and drop the sample on it and insert the sample holder back into the machine."
+    );
     textToSpeech(
       "Now remove the holder, drag and drop the sample on it and insert the sample holder back into the machine."
     );
   } else {
+    type(
+      "अब होल्डर को बाहर निकालें, उस पर सैंपल रखें और सैंपल होल्डर को वापस मशीन में डालें।"
+    );
     textToSpeech(
       "अब होल्डर को बाहर निकालें, उस पर सैंपल रखें और सैंपल होल्डर को वापस मशीन में डालें।",
       "hi-IN"
@@ -97,11 +100,13 @@ function strt() {
 
 // toast message function
 function showToast(msg, type = 0) {
-  tWrapper.append(`<div id="t${ti++}" class="toast${type == 1 ? " danger" : type == 2 ? " success" : ""
-    }" role="alert" aria-live="assertive" aria-atomic="true">
+  tWrapper.append(`<div id="t${ti++}" class="toast${
+    type == 1 ? " danger" : type == 2 ? " success" : ""
+  }" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="${type == 1 ? "#ff0000" : type == 2 ? "#31a66a" : "#007aff"
-    }" /></svg>
+        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="${
+          type == 1 ? "#ff0000" : type == 2 ? "#31a66a" : "#007aff"
+        }" /></svg>
         <strong class="mr-auto">Notification</strong>
     </div>
     <div class="toast-body">
@@ -116,10 +121,11 @@ function showToast(msg, type = 0) {
 // end of toast msg function
 
 $(function () {
-  type("Welcome, Get started by switching on the machine.");
   if (english) {
+    type("Welcome, Get started by switching on the machine.");
     textToSpeech("Welcome, Get started by switching on the machine.");
   } else {
+    type("मशीन को स्टार्ट बटन द्वारा चालू करके प्रारंभ करें|");
     textToSpeech("मशीन को स्टार्ट बटन द्वारा चालू करके प्रारंभ करें", "hi-IN");
   }
 
@@ -232,10 +238,11 @@ $(function () {
 
   // vaccum
   $("#setvac").click(function () {
-    type("Now set accelerating voltage.");
     if (english) {
+      type("Now set accelerating voltage.");
       textToSpeech("Now set the accelerating voltage.");
     } else {
+      type("अब त्वरित वोल्टेज सेट करें|");
       textToSpeech("अब त्वरित वोल्टेज सेट करें", "hi-IN");
     }
     showToast("Vaccum set.");
@@ -267,11 +274,12 @@ $(function () {
     $("#vslider").slider("option", "disabled", true);
     $("#position").prop("disabled", false);
     if (english) {
+      type("Choose the material");
       textToSpeech("Choose the material");
     } else {
+      type("अब पदार्थ चुनें|");
       textToSpeech("अब पदार्थ चुनें", "hi-IN");
     }
-    type("Choose the material");
   });
 
   // magnification
@@ -310,11 +318,12 @@ $(function () {
       $("#vslider").slider("option", "disabled", false);
       $("#setvac").prop("disabled", false);
       if (english) {
+        type("Now set the vacuum.");
         textToSpeech("Now set the vacuum.");
       } else {
+        type("अब वैक्यूम सेट करें|");
         textToSpeech("अब वैक्यूम सेट करें", "hi-IN");
       }
-      type("Now set the vacuum.");
     } else {
       showToast("Please drag and drop sample before proceeding.", 1);
     }
@@ -323,11 +332,12 @@ $(function () {
 
 // imaging mode selection
 function change() {
-  type("Now switch on the beam.");
   showToast("Switch on the beam");
   if (english) {
+    type("Now switch on the beam.");
     textToSpeech("Try to switch on the beam now.");
   } else {
+    type("बीम को चालू करने का प्रयास करें|");
     textToSpeech("बीम को चालू करने का प्रयास करें", "hi-IN");
   }
   $("#on").prop("disabled", false);
@@ -390,16 +400,19 @@ function drawBeam() {
     beamTimer = -1;
     beamTimer2 = setInterval(drawBeam2, 100);
 
-    type(
-      "The output image is displaying on the right side, you can also change the magnification."
-    );
     if (english) {
+      type(
+        "The output image is displaying on the right side, you can also change the magnification."
+      );
       textToSpeech(
         "The output image is displaying on the right side, you can also change the magnification."
       );
     } else {
+      type(
+        "आउटपुट छवि दाईं ओर प्रदर्शित हो रही है, आप आवर्धन भी बदल सकते हैं|"
+      );
       textToSpeech(
-        "आउटपुट छवि दाईं ओर प्रदर्शित हो रही है, आप आवर्धन भी बदल सकते हैं",
+        "आउटपुट छवि दाईं ओर प्रदर्शित हो रही है, आप आवर्धन भी बदल सकते हैं|",
         "hi-IN"
       );
     }
