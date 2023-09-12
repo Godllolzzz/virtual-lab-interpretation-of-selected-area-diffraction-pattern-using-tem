@@ -16,13 +16,41 @@
   </head>
 
   <body>
+    <!-- dialogue-box -->
+    <div
+
+      id="dialogue-box-parent"
+      style="
+        width: 100vw;
+        height: 100vh;
+        z-index: 999;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: block;
+      "
+    >
+      <div class="dialogue-box">
+        <h1>WELCOME TO THE TRANSMISSION ELECTRON MICROSCOPE SIMULATION</h1>
+        <h4 style="color: #16b639; font-style: italic">
+          Choose the language for instructions:
+        </h4>
+        <div style="display: flex;">
+          <button onclick="englishVoice(this)" style="background-color: green;">
+            ENG
+          </button>
+          <button onclick="hindiVoice(this)" style="background-color: red;">
+            HIN
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- experiment instructions -->
 
-    <div style="width: 10rem; height: 10rem; z-index: 4;"> hello</div>
     <div class="mg card fluid-container mb-2">
       <div class="header-bar p-2">
-        <h4 class="" style="color: blue; font-style: italic">Instructions:</h4>
-        <div id="typer"></div>
+        <h4 class="" style="color: blue; font-style: italic; display: inline-block;">Instructions:</h4>
+        <div id="typer" style="display: inline-block; margin-left: 1rem; font-size: larger; font-weight: bold;"></div>
       </div>
     </div>
     <!-- end of experiment instructions -->
@@ -35,8 +63,16 @@
           class="badge d-flex justify-content-between"
           style="margin-bottom: 1rem"
         >
-          <h4 class="" style="background-color:#16b639; border-radius: 4px; padding: 0.5rem 1.5rem;">Control Panel</h4>
-          <button class="button-91" onclick="toggleVoice(this)" style="height: 2rem;">ENG</button>
+          <h4
+            class=""
+            style="
+              background-color: #16b639;
+              border-radius: 4px;
+              padding: 0.5rem 1.5rem;
+            "
+          >
+            Control Panel
+          </h4>
           <div>
             <!-- <div class="label-heading">Switch</div> -->
             <input
@@ -87,7 +123,7 @@
         <!-- sample load end -->
 
         <!-- vaccum slider -->
-        <div class=" mt-2 boxx">
+        <div class="mt-2 boxx">
           <label for=" formControlRange" disabled>Vaccum (in torr)</label>
           <div class="row">
             <div class="col-9">
@@ -99,9 +135,7 @@
               </div>
             </div>
             <div class="col-3">
-              <button id="setvac" class=" button-91 w-100" disabled>
-                Set
-              </button>
+              <button id="setvac" class="button-91 w-100" disabled>Set</button>
             </div>
           </div>
         </div>
@@ -120,9 +154,7 @@
               </div>
             </div>
             <div class="col-3">
-              <button id="setav" class="button-91 w-100" disabled>
-                Set
-              </button>
+              <button id="setav" class="button-91 w-100" disabled>Set</button>
             </div>
           </div>
         </div>
@@ -142,6 +174,7 @@
         <!-- beam on -->
         <div class="">
           <button id="on" class="but sm w-50 m-3" disabled>Beam On</button>
+          <!-- <button id="reloadButton" class="but sm w-50 m-3" disabled>Reset</button> -->
         </div>
         <!-- beam off -->
 
@@ -158,9 +191,7 @@
               </div>
             </div>
             <div class="col-3">
-              <button id="setmag" class="button-91 w-100" disabled>
-                Set
-              </button>
+              <button id="setmag" class="button-91 w-100" disabled>Set</button>
             </div>
           </div>
         </div>
@@ -313,7 +344,7 @@
               id="image-x"
               class="moveable-image x"
             />
-            <div style="color: red; border-style: none;" class="hover-text card">
+            <div style="color: red; border-style: none" class="hover-text card">
               <p>Sample Holder</p>
             </div>
           </div>

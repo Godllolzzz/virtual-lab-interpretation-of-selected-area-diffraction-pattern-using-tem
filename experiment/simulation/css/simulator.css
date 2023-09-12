@@ -331,3 +331,35 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+.dialogue-box{
+  /* width: 60%;
+  height: 30%; */
+  border-radius: 8px;
+  position: absolute;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.606);
+  transition: 0.3s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* z-index: 9999; */
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dialogue-box button {
+  padding: 0rem 1rem;
+  margin: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.606);
+  border-style: none;
+  /* background-color: green; */
+  color: white;
+}
