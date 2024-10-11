@@ -275,7 +275,7 @@ canvas {
 /* sample holder move */
 #image-x {
   position: absolute;
-  left: 20%;
+  left: calc(50% - 8rem);
   top: 15rem;
   transition: all 1s ease;
   width: 8rem;

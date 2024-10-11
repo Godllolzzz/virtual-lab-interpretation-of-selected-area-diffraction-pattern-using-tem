@@ -18,39 +18,60 @@
   <body>
     <!-- dialogue-box -->
     <div
-
-      id="dialogue-box-parent"
-      style="
-        width: 100vw;
-        height: 100vh;
-        z-index: 999;
-        position: absolute;
-        background-color: rgba(0, 0, 0, 0.8);
-        display: block;
-      "
-    >
-      <div class="dialogue-box">
-        <h1>WELCOME TO THE TRANSMISSION ELECTRON MICROSCOPE SIMULATION</h1>
-        <h4 style="color: #16b639; font-style: italic">
-          Choose the language for instructions:
-        </h4>
-        <div style="display: flex;">
-          <button onclick="englishVoice(this)" style="background-color: green;">
-            ENG
-          </button>
-          <button onclick="hindiVoice(this)" style="background-color: red;">
-            HIN
-          </button>
-        </div>
+    id="dialogue-box-parent"
+    style="
+      width: 100vw;
+      height: 100vh;
+      position: fixed; /* Changed to fixed for better behavior */
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex; /* Use flex to center the dialogue box */
+      align-items: center; /* Center vertically */
+      justify-content: center; /* Center horizontally */
+      z-index: 999;
+    "
+  >
+    <div class="dialogue-box" style="
+          background-color: white; /* Add a background color for contrast */
+          padding: 20px; /* Add some padding */
+          border-radius: 10px; /* Rounded corners */
+          text-align: center; /* Center text */
+        ">
+      <h1>WELCOME TO THE TRANSMISSION ELECTRON MICROSCOPE SIMULATION</h1>
+      <h4 style="color: #16b639; font-style: italic">
+        Choose the language for instructions:
+      </h4>
+      <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <button onclick="englishVoice(this)" style="background-color: green; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+          ENG
+        </button>
+        <button onclick="hindiVoice(this)" style="background-color: red; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-left: 10px; cursor: pointer;">
+          HIN
+        </button>
       </div>
+    </div>
+  </div>
+  
     </div>
 
     <!-- experiment instructions -->
 
     <div class="mg card fluid-container mb-2">
       <div class="header-bar p-2">
-        <h4 class="" style="color: blue; font-style: italic; display: inline-block;">Instructions:</h4>
-        <div id="typer" style="display: inline-block; margin-left: 1rem; font-size: larger; font-weight: bold;"></div>
+        <h4
+          class=""
+          style="color: blue; font-style: italic; display: inline-block"
+        >
+          Instructions:
+        </h4>
+        <div
+          id="typer"
+          style="
+            display: inline-block;
+            margin-left: 1rem;
+            font-size: larger;
+            font-weight: bold;
+          "
+        ></div>
       </div>
     </div>
     <!-- end of experiment instructions -->
@@ -178,8 +199,25 @@
         </div>
         <!-- beam off -->
 
-        <!-- magnification slider -->
+        <!-- defect structure -->
         <div class="boxx mt-2">
+          <label for="input">Choose Defect: </label>
+          <select
+            class="imgMode"
+            onchange="changeImage()"
+            id="position2"
+            disabled
+          >
+            <option disabled selected>Select</option>
+            <option value="3">Stacking Fault</option>
+            <option value="4">Twins Fault</option>
+          </select>
+        </div>
+
+        <!-- defect structure -->
+
+        <!-- magnification slider -->
+        <!-- <div class="boxx mt-2">
           <label for="formControlRange">Magnification</label>
           <div class="row">
             <div class="col-9">
@@ -194,7 +232,7 @@
               <button id="setmag" class="button-91 w-100" disabled>Set</button>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- magnification slider end -->
       </div>
       <!-- col 1 end -->
@@ -411,7 +449,15 @@
                 id="outImage3"
                 style="display: none"
                 class="w-100"
-                src="../images/outputs/zoom.png"
+                src="../images/outputs/twinsFault.png"
+              />
+            </figure>
+            <figure data-zoom data-zoom-max="5">
+              <img
+                id="outImage4"
+                style="display: none"
+                class="w-100"
+                src="../images/outputs/stackingFault.png"
               />
             </figure>
           </div>
@@ -430,9 +476,13 @@
           <div>Please follow the instructions carefully. Handle with care.</div>
         </div>
         <!-- end of theory code -->
+        <div style="text-align: center; margin-top: 20px;">
+          <button id="downloadBtn" class="btn btn-primary" onclick="downloadVisibleImage()">Download Image</button>
+        </div>
       </div>
       <!-- col 3 end -->
     </div>
+
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
